@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact - LogicBridge Learning</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #000000, #1a1a1a);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: #141414;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      border-bottom: 2px solid #e50914;
+    }
+
+    header h1 {
+      font-size: 26px;
+      color: #e50914;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #e50914;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      margin-left: 20px;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: #fff;
+      margin: 4px;
+      border-radius: 5px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #141414;
+        position: absolute;
+        top: 70px;
+        right: 40px;
+        width: 200px;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    .contact-section {
+      flex: 1;
+      padding: 80px 20px;
+      text-align: center;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    .contact-section img {
+      width: 120px;
+      margin-bottom: 20px;
+      filter: drop-shadow(2px 2px 4px #e50914);
+    }
+
+    .contact-section h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .contact-section p {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    .contact-section a {
+      color: #e50914;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #141414;
+      color: #999;
+      text-align: center;
+      padding: 20px;
+      border-top: 2px solid #e50914;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<script>
+  // Smooth link transition
+  const links = document.querySelectorAll("a[href]");
+  links.forEach(link => {
+    link.addEventListener("click", function (e) {
+      const target = link.getAttribute("href");
+      if (target.includes('.html')) {
+        e.preventDefault();
+        document.body.style.opacity = 0;
+        setTimeout(() => {
+          window.location.href = target;
+        }, 300);
+      }
+    });
+  });
+</script>
+
+<body>
+  <header>
+    <h1>LogicBridge Learning</h1>
+    <nav>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="index.html#courses">Courses</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="contact-section">
+    <img src="https://i.pinimg.com/736x/83/75/be/8375be4e0fe42e7c3284384200b6bc2b.jpg" alt="Call Icon" style="border-radius: 100px;"/>
+    <h2>We're here to help!</h2>
+    <p style="font-weight: bold;">Email: <a href="mailto:logicbridgelearning@gmail.com">logicbridgelearning@gmail.com</a></p>
+    <p style ='color:#25D366;font-weight: bold;'>WhatsApp: <a href="https://wa.me/918309820098" target="_blank">+91 8309820098</a></p>
+
+
+    <hr>
+    <p>Response within 12 HRS</p>
+  </div>
+
+  <footer>
+    <p>© 2025 LogicBridge Learning. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('show');
+    }
+  </script>
+</body>
+</html>
